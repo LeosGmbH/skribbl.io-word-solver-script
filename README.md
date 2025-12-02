@@ -1,80 +1,78 @@
 # Skribbl.io Word Solver
 
-A Tampermonkey userscript that provides intelligent word suggestions for Skribbl.io by filtering a comprehensive German word list based on hint patterns.
+Tampermonkey userscript that suggests **German** words for Skribbl.io by filtering a large word list based on the current hint pattern.
 
 ## 🚀 Features
 
-- **Smart Pattern Matching** - Filters words based on Skribbl.io hint structure
-- **Wildcard Support** - Underscore (_) treated as unknown letters
-- **Multi-word Handling** - Supports phrases, hyphens, and compound words
-- **Real-time Updates** - Automatically refines suggestions as hints reveal
-- **Click-to-Type** - Instant word input with a single click
-- **Clean Interface** - Non-intrusive overlay design
+- **Smart pattern matching** – filters words based on the Skribbl.io hint layout
+- **Wildcard support** – `_` is treated as an unknown letter
+- **Multi‑word & hyphen support** – handles phrases and compound words
+- **Real‑time updates** – suggestions refresh as new letters appear
+- **Click‑to‑type** – insert a suggestion into the chat with one click
+- **Minimal UI** – small, non‑intrusive overlay
 
 ## 📦 Installation
 
-1. Install [Tampermonkey](https://www.tampermonkey.net/)
-2. Copy `Fertiges skript.js` 
-3. Create new userscript in Tampermonkey
-4. Paste code and save
-5. Visit Skribbl.io - script activates automatically
+1. Install [Tampermonkey](https://www.tampermonkey.net/).
+2. Open `Skript.js` in this repository.
+3. Copy the entire file content.
+4. Create a new userscript in Tampermonkey.
+5. Paste the copied code and save.
+6. Open [skribbl.io](https://skribbl.io/) – the script activates automatically on the page.
 
 ## 🎯 How It Works
 
-The script analyzes hint patterns:
-- `_` = unknown letter (wildcard)
-- `-` = hyphen in compound words  
-- ` ` = space between words
-- Numbers = word lengths for multi-word answers
+The script matches all words in the German word list against the current hint:
 
-## 📁 Files
+- `_` → unknown letter (wildcard)
+- `-` → hyphen inside compound words
+- space (` `) → space between words
+- multi‑word hints → handled via segment lengths
 
-- `Fertiges skript.js` - Production-ready userscript
-- `wordlistFertig.txt` - German word database (4,000+ words)
-- `Hints_format.html` - HTML structure reference
-- `testing.js` - Development version
-- `obfuscated.js` - Minified version
+Matching candidates are displayed in an overlay where you can click them to type them into the chat.
+
+## 📁 Project Structure
+
+- `Skript.js` – production‑ready Tampermonkey userscript
+- `src/GermanWordList.txt` – German word list used by the script
+- `src/TestWords.txt` – test entries for development
+- `src/Hints_format.html` – reference of the hint DOM structure used for parsing
 
 ## 🔧 Compatibility
 
-- **Browsers**: Chrome, Firefox, Edge, Safari
-- **Site**: Skribbl.io official
-- **Dependencies**: None (Tampermonkey only)
-
-## 📊 Word List Stats
-
-- **4,000+ German words** - From 2-letter to multi-word phrases
-- **Categories**: Objects, animals, places, brands, characters, concepts
-- **Format**: JSON array for easy integration
-- **Updates**: Comprehensive German vocabulary
+- **Browsers**: Chrome, Firefox, Edge, Safari (with Tampermonkey)
+- **Site**: Official Skribbl.io
+- **Dependencies**: none besides Tampermonkey
 
 ## ⚡ Usage
 
-1. Join any Skribbl.io game
-2. When guessing, script detects hint pattern automatically  
-3. View filtered suggestions in overlay
-4. Click any word to input it instantly
-5. Suggestions update as more hints appear
-
-## 🎮 Game Integration
-
-- **Automatic Detection** - No manual setup required
-- **Non-intrusive** - Clean overlay doesn't block gameplay
-- **Performance** - Optimized filtering with caching
-- **Fair Play** - Enhances, doesn't automate completely
+1. Join any Skribbl.io lobby.
+2. When it is your turn to guess, the script automatically reads the hint.
+3. Suggested words are shown in the overlay.
+4. Click a word to send it into the guess field.
+5. As more letters are revealed, the suggestions update automatically.
 
 ## 🛠️ Technical Details
 
-- **Version**: 4.6
 - **Author**: 062Leo
-- **Language**: German word list with English interface
-- **Pattern Algorithm**: Advanced regex matching with caching
-- **UI Framework**: Pure JavaScript/CSS (no external dependencies)
+- **Current language support**: German word list, English UI
+- **Planned languages**: English, Spanish, French (coming in future releases)
+- **Implementation**: pattern‑based filtering with caching in plain JavaScript (no external libraries)
+
+## 🤝 Contributing
+
+Contributions are very welcome:
+
+- improve or extend the word lists (starting with German)
+- help add support for English, Spanish, and French
+- report bugs or suggest improvements to the UI/UX
+
+Feel free to open issues or pull requests.
 
 ## 📝 License
 
-MIT License - Open source, free to use and modify
+MIT License – free to use, modify, and share.
 
 ---
 
-**Note**: For educational and entertainment purposes. Use responsibly and respect fair play guidelines.
+**Note:** For educational and entertainment purposes only. Please use responsibly and respect fair‑play rules.
